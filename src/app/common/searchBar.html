@@ -1,0 +1,59 @@
+<div class="section section-search" ng-controller="SearchBarCtrl">
+
+  <!-- Show full screen dark background when search bar is active -->
+  <div class="search-bar-background" ng-show="isVisible" ng-click="setVisibility(false)"></div>
+
+  <div class="container">
+
+    <div class="columns">
+      <div class="control is-medium search-input-wrapper column is-half is-offset-one-quarter" style="z-index: 80"
+        ng-class="{'is-loading' : isLoading}">
+        <input class="input is-medium search-input" ng-model="query" ng-click="setVisibility(true)" type="text"
+          placeholder="Search by Name" ng-change="onQueryChange()">
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="search-results-wrapper column is-half is-offset-one-quarter" ng-show="isVisible">
+        <div class="search-results">
+          <article class="media" ng-repeat="sr in searchResults">
+            <figure class="media-left">
+              <p class="image is-2by3">
+                <!-- Show poster it exists, otherwise show 'no poster' img -->
+                <img ng-src="{{sr.poster_path ? posterUrlSmall + sr.poster_path : 'assets/img/no-poster.jpg'}}">
+              </p>
+            </figure>
+
+            <div class="media-content">
+              <a class="content" style="color: inherit; margin: 0" ng-click="setVisibility(false)" ng-href="#!/movie/{{sr.id}}">
+                <h5 class="title">
+                  {{sr.title}}
+                </h5>
+                <p class="description">
+                  <!-- show year of release -->
+                  {{sr.release_date ? sr.release_date.substr(0,4) : 'n/a'}}
+                  <!-- map through eash genre and find the ones that matches current movie -->
+                  | <span ng-repeat="genreId in sr.genre_ids">
+                    <span ng-repeat="genre in genres" ng-if="genre.id === genreId">{{genre.name}},</span>
+                  </span>
+                  | {{sr.vote_average}}
+                </p>
+              </a>
+
+              <nav class="level is-mobile" style="margin-top: 5px;">
+                <div class="level-left">
+                  <a class="tag is-dark is-outlined" style="margin-right: 8px;" ng-click="addMovie(sr)">
+                    Add
+                  </a>
+                  <a class="tag is-text has-background-grey-lighter" ng-click="setVisibility(false)" ng-href="#!/movie/{{sr.id}}">
+                    Details
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

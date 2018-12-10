@@ -1,0 +1,102 @@
+.modal {
+  opacity: 1;
+  z-index: 100; }
+  .modal a {
+    color: rgba(255, 255, 255, 0.6); }
+
+.modal-card {
+  background: #002410;
+  background: linear-gradient(135deg, #002410 0%, #124283 100%);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 100; }
+  .modal-card::after {
+    content: "";
+    background: url("../img/pulpfiction.png");
+    background-size: cover;
+    background-position: top center;
+    opacity: 0.03;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; }
+
+.tabcontent {
+  display: none; }
+
+.tabcontent.is-active {
+  display: block; }
+
+.modal-card-head {
+  background-color: transparent;
+  border-bottom: none;
+  padding: 0; }
+  .modal-card-head .tabs ul {
+    border: none; }
+    .modal-card-head .tabs ul li {
+      font-size: 1.15rem !important;
+      font-weight: bold; }
+      .modal-card-head .tabs ul li a {
+        opacity: .5;
+        text-decoration: underline;
+        border: none;
+        border-bottom: 2px solid transparent;
+        color: #fff; }
+      .modal-card-head .tabs ul li a:hover {
+        background-color: transparent;
+        border-color: transparent;
+        opacity: 1;
+        text-decoration: none; }
+    .modal-card-head .tabs ul li.is-active a {
+      background-color: transparent;
+      background-color: rgba(0, 0, 0, 0.3);
+      opacity: 1;
+      text-decoration: none; }
+
+.modal-card-body {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+  .modal-card-body input {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: #fff;
+    padding-left: 0; }
+    .modal-card-body input:focus {
+      box-shadow: none !important;
+      border-bottom: 2px solid #fff; }
+  .modal-card-body .label {
+    color: #fff;
+    opacity: .85;
+    font-size: .9rem; }
+
+.modal-card-foot {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: #fff;
+  padding-top: 10px; }
+
+.close-label {
+  position: absolute !important;
+  right: 1rem;
+  cursor: pointer;
+  top: .5rem;
+  color: #fff !important;
+  opacity: .65; }
+  .close-label:hover {
+    opacity: 1; }
+
+.btn-google {
+  max-width: 170px;
+  opacity: 1 !important;
+  display: inline;
+  border-radius: 10px !important; }
+  .btn-google:hover {
+    opacity: 1; }

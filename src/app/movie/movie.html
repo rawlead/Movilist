@@ -1,0 +1,42 @@
+<div ng-controller="MovieCtrl" class="movieRoot">
+
+  <div class="image-backdrop" ng-if="movie.backdrop_path" ng-style="{'background-image':'url(' + posterUrlOriginal + movie.backdrop_path + ')'}">
+
+  </div>
+  <section class="section">
+    <div class="container">
+
+      <div class="columns">
+        <!-- while loading show empty div in order to keep the structure of DOM -->
+        <div ng-if="isMovieLoading" class="is-offset-1 column is-3 has-text-centered"></div>
+
+        <div ng-if="!isMovieLoading" class="is-offset-1 column is-3">
+          <div ng-show="movie.poster_path" class="poster-large-img" ng-style="{'background-image':'url(' + posterUrlOriginal + movie.poster_path + ')'}"></div>
+          <div ng-hide="movie.poster_path" class="poster-large-img" style="background-image: url('assets/img/no-poster.jpg')"></div>
+        </div>
+
+        <div ng-if="isMovieLoading" class="column has-text-white is-7">
+          <figure class="image is-128x128">
+            <img src="assets/img/spinner.gif" alt="">
+          </figure>
+        </div>
+        <div ng-if="!isMovieLoading" class="column has-text-white is-7">
+
+          <div class="column-content-shadow ">
+            <h3 class="title has-text-white">{{movie.title}}</h3>
+            <h5 class="subtitle has-text-grey-light">{{movie.tagline}}</h5>
+            <p>{{movie.overview}}</p>
+            <br>
+            <p>Budget: {{movie.budget}}</p>
+            <p>Vote average: {{movie.vote_average}}</p>
+            <p>Release date: {{movie.release_date}}</p>
+            <br>
+            <button ng-show="isMovieInList" ng-disabled="isUserProfileLoading" type="button" ng-click="removeMovie()" class="button is-warning is-outlined" ng-class="isUserProfileLoading ? 'is-loading' : ''">Remove from my list</button>
+            <button ng-hide="isMovieInList" ng-disabled="isUserProfileLoading" type="button" ng-click="addMovie()" class="button is-warning is-outlined" ng-class="isUserProfileLoading ? 'is-loading' : ''">Add to my list</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

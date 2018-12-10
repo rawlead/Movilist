@@ -1,0 +1,90 @@
+@import 'variables.scss';
+
+.container.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, auto));
+  grid-gap: .75rem;
+  margin-top: 1rem;
+}
+
+.card {
+  &.is-horizontal {
+    display: flex;
+    cursor: pointer;
+    border-radius: $radius;
+    overflow: hidden;
+    white-space: nowrap;
+    background: transparent;
+   
+    transition: background-color 100ms ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: $shadow;
+
+    .card-image {
+      overflow: hidden;
+      min-width: 100px;
+
+      & img {
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
+        opacity: .9;
+      }
+    }
+
+
+    .card-stacked {
+      flex-direction: column;
+      flex: 1 1 auto;
+      display: flex;
+      position: relative;
+
+
+      .card-content {
+        flex-grow: 1;
+        padding: 5px 10px;
+        font-size: .8rem;
+        color: $content-color;
+          max-width: 200px;
+          overflow: hidden;
+
+
+        .btn-details {
+          position: absolute;
+          right: 0;
+        }
+
+
+        .media {
+          margin-bottom: 0rem;
+          position: relative;
+          overflow: hidden;
+        text-overflow: ellipsis !important;
+        }
+
+        p {
+          margin: 0;
+        }
+
+        .button {
+          margin-top: 5px;
+        }
+
+        .title {
+          color: $title-color;
+        }
+
+        .subtitle {
+          color: $subtitle-color;
+        }
+      }
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.25);
+
+      .card-image img {
+        opacity: 1;
+      }
+    }
+  }
+}

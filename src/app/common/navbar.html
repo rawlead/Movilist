@@ -1,0 +1,50 @@
+<div ng-controller="NavbarCtrl">
+<nav class="navbar is-transparent" change-class-on-scroll offset="200" scroll-class="is-fixed-top" role="navigation" aria-label="main navigation" >
+  <div class="navbar-background"></div>
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" ng-href="{{loggedInUser ? '/#!list/' + loggedInUser.uid : '#!discover'}}">
+        <img src="assets/img/logo.png" width="112" height="28">
+      </a>
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" ng-hide="!loggedInUser" ng-href="{{'/#!list/' + loggedInUser.uid}}">
+          My List
+        </a>
+
+        <a class="navbar-item" href="#!discover">
+            Discover
+          </a>
+
+        <a class="navbar-item" href="#!random">
+          Random movie
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div ng-show="loggedInUser">
+            <div class="buttons">
+            <button class="button is-text" style="cursor: default;">{{loggedInUser.email}}</button>
+
+            <button class="button is-white is-outlined" ng-click="handleSignOut()">Sign Out</button>
+            </div>
+          </div>
+          <div ng-hide="loggedInUser">
+            <div class="buttons">
+              <a class="button is-warning is-outlined" id="open-modal" ng-click="openAuthForm()">
+                <strong>Sign up | Log in</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+</div>

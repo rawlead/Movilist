@@ -1,0 +1,157 @@
+@import 'variables.scss';
+
+
+.modal {
+  opacity: 1;
+  z-index: 100;
+
+  a {
+    color: $subtitle-color;
+  }
+}
+
+.modal-card {
+  background: rgb(0, 36, 16);
+  background: linear-gradient(135deg, $main-color-1 0%, $main-color-2 100%);
+  border-radius: $radius;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 100;
+
+  &::after {
+    content: "";
+    background: url('../img/pulpfiction.png');
+    background-size: cover;
+    background-position: top center;
+    opacity: 0.03;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.tabcontent {
+  display: none;
+
+}
+
+.tabcontent.is-active {
+  display: block;
+}
+
+.modal-card-head {
+  background-color: transparent;
+  border-bottom: none;
+  padding: 0;
+
+  .tabs {
+    ul {
+      border: none;
+
+      li {
+        font-size: 1.15rem !important;
+        font-weight: bold;
+
+        a {
+          opacity: .5;
+          text-decoration: underline;
+
+          border: none;
+          border-bottom: 2px solid transparent;
+          color: $title-color;
+        }
+
+        a:hover {
+          background-color: transparent;
+          border-color: transparent;
+          opacity: 1;
+          text-decoration: none;
+        }
+      }
+
+      li.is-active a {
+        background-color: transparent;
+        // color: $title-color;
+        // border-color: #fff !important;
+        background-color: rgba(0, 0, 0, 0.3);
+        opacity: 1;
+        text-decoration: none;
+
+
+      }
+    }
+  }
+}
+
+.modal-card-body {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  input {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: $title-color;
+    padding-left: 0;
+
+
+    &:focus {
+      // outline: none;
+      box-shadow: none !important;
+      border-bottom: 2px solid #fff;
+    }
+  }
+
+
+
+  .label {
+    color: $title-color;
+    opacity: .85;
+    font-size: .9rem;
+  }
+
+  .help {
+    // opacity: .85;
+  }
+}
+
+.modal-card-foot {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: $title-color;
+  padding-top: 10px;
+}
+
+.close-label {
+  position: absolute !important;
+  right: 1rem;
+  cursor: pointer;
+  top: .5rem;
+  color: $title-color !important;
+  opacity: .65;
+
+  &:hover {
+    opacity: 1;
+
+  }
+
+}
+
+.btn-google {
+  max-width: 170px;
+  // display: block;
+  opacity: 1 !important;
+  display: inline;
+  border-radius: $radius !important;
+
+  &:hover {
+    opacity: 1;
+  }
+}

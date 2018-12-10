@@ -1,0 +1,110 @@
+@import 'variables.scss';
+
+.search-bar-background {
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.search-input-wrapper {
+  .search-input {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: $title-color;
+    border-bottom: 1px solid $title-color;
+    padding-left: 0;
+    padding-right: 0;
+
+    &::placeholder {
+      color: $subtitle-color;
+      opacity: 1;
+    }
+
+  }
+}
+
+.search-results-wrapper {
+  // display: none;
+  position: absolute;
+  // border-radius: $radius;
+  border: none;
+  z-index: 80;
+  top: 58px !important;
+  left: 5px;
+  right: 5px;
+  padding: 0 ;
+  background: rgb(0, 36, 16);
+  background: linear-gradient(135deg, $main-color-1 0%, $main-color-2 100%);
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+  box-shadow: $shadow;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: $subtitle-color;
+
+  .search-results {
+    .media {
+      transition: background-color 100ms ease-in-out;
+      // border-top: 1px solid $main-color-1;
+      border-bottom: 1px solid $main-color-1;
+      padding: 0;
+      margin: 0;
+      // border: none;
+      // border-radius: $radius;
+      opacity: .97;
+      // background: #fff;
+
+      .media-content {
+        padding: .3rem 0;
+        cursor: pointer;
+
+        .content {
+          margin-bottom: 4px;
+
+          & .title {
+            font-weight: bold;
+            color: $title-color;
+            margin-bottom: 3px;
+          }
+
+          & .description {
+            font-size: .85rem;
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .media-left {
+        margin-right: .5rem;
+      }
+
+      .image {
+        width: 3.5rem;
+        opacity: .9;
+
+        & img {
+          // border-top-left-radius: $radius;
+          // border-bottom-left-radius: $radius;
+        }
+      }
+
+      &:hover {
+        // background-color: hsl(0, 0%, 90%);
+        // background-color: $main-color-1;
+        opacity: 1;
+        // box-shadow: $shadow;
+        background-color: rgba(0, 0, 0, 0.25);
+
+        .image {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

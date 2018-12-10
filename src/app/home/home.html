@@ -1,0 +1,50 @@
+<section class="section" ng-controller="HomeCtrl" ng-init='glowna()'>
+  <div class="container has-text-centered">
+    <h1 class="is-size-3 has-text-white" ng-show="isUserProfileLoading"> <i class="fas fa-circle-notch fa-spin"></i> Please wait...</h1>
+    <div ng-hide="isUserProfileLoading">
+      <h1 ng-if="isListBelongsToUser" class="is-size-3 has-text-white">My list<span class="has-text-weight-bold">{{!userProfile.movies
+          ? ' is empty' : ''}}</span></h1>
+      <h1 ng-if="!isListBelongsToUser" class="is-size-3 has-text-white">
+        List of {{userProfile.email ? userProfile.email : ''}} {{!userProfile.movies ? 'is empty' : ''}}
+      </h1>
+    </div>
+  </div>
+
+
+  <div ng-hide="isUserProfileLoading" class="container grid-container">
+    <!-- CARD -->
+    <div class="card is-horizontal grid-item" ng-repeat="movie in userProfile.movies">
+      <a ng-href="#!/movie/{{movie.id}}" class="is-transparent" style="color: inherit">
+        <div class="card-image">
+          <figure class="image is-2by3">
+            <img ng-src="{{movie.poster_path ? posterUrlSmall + movie.poster_path : 'assets/img/no-poster.jpg'}}" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-5">{{movie.title}}</p>
+                <p class="subtitle is-6">{{movie.release_date ? movie.release_date.substr(0,4) : 'n/a'}}</p>
+              </div>
+            </div>
+            <div class="content">
+              <p>
+                <span ng-repeat="genre in movie.genres">
+                  {{genre.name}},
+                </span>
+              </p>
+              <!-- <p><b>Drama/Biography</b></p> -->
+              <p>Votes: <b>{{movie.vote_count}}</b></p>
+              <p>Average: <b>{{movie.vote_average}}</b></p>
+              <a class="button is-white is-outlined" ng-show="isListBelongsToUser" ng-click="removeMovie(movie)">Remove</a>
+
+              <a class="button is-white is-outlined" ng-hide="isMovieInList(movie)" ng-click="addMovie(movie)">Add to my list</a>
+              <a class="button is-text  btn-details" ng-href="#!/movie/{{movie.id}}">Details</a>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

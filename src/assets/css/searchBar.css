@@ -1,0 +1,65 @@
+.search-bar-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.search-input-wrapper .search-input {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  padding-left: 0;
+  padding-right: 0; }
+  .search-input-wrapper .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    opacity: 1; }
+
+.search-results-wrapper {
+  position: absolute;
+  border: none;
+  z-index: 80;
+  top: 58px !important;
+  left: 5px;
+  right: 5px;
+  padding: 0;
+  background: #002410;
+  background: linear-gradient(135deg, #002410 0%, #124283 100%);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6); }
+  .search-results-wrapper .search-results .media {
+    transition: background-color 100ms ease-in-out;
+    border-bottom: 1px solid #002410;
+    padding: 0;
+    margin: 0;
+    opacity: .97; }
+    .search-results-wrapper .search-results .media .media-content {
+      padding: .3rem 0;
+      cursor: pointer; }
+      .search-results-wrapper .search-results .media .media-content .content {
+        margin-bottom: 4px; }
+        .search-results-wrapper .search-results .media .media-content .content .title {
+          font-weight: bold;
+          color: #fff;
+          margin-bottom: 3px; }
+        .search-results-wrapper .search-results .media .media-content .content .description {
+          font-size: .85rem;
+          margin-bottom: 0; }
+    .search-results-wrapper .search-results .media .media-left {
+      margin-right: .5rem; }
+    .search-results-wrapper .search-results .media .image {
+      width: 3.5rem;
+      opacity: .9; }
+    .search-results-wrapper .search-results .media:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.25); }
+      .search-results-wrapper .search-results .media:hover .image {
+        opacity: 1; }

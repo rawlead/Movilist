@@ -1,0 +1,69 @@
+{
+  "_from": "bulma-toast",
+  "_id": "bulma-toast@1.4.0",
+  "_inBundle": false,
+  "_integrity": "sha512-hYuRA46xwcgEvwlATYgsIwIKuGUkDkSiLWmrmN2+VddWfbL3EPfG1c693jXGKQKH8dWu40R/mCXAwzqs2N2wjw==",
+  "_location": "/bulma-toast",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "bulma-toast",
+    "name": "bulma-toast",
+    "escapedName": "bulma-toast",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/bulma-toast/-/bulma-toast-1.4.0.tgz",
+  "_shasum": "00c6b6431852b1b8b3fd3cfaa196ef3d27ab8dd2",
+  "_spec": "bulma-toast",
+  "_where": "/Users/ivan/Desktop/movilist",
+  "author": {
+    "name": "@rfoel",
+    "email": "rafaelfr@outlook.com"
+  },
+  "browser": "dist/bulma-toast.min.js",
+  "bugs": {
+    "url": "https://github.com/rfoel/bulma-toast/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Bulma's pure JavaScript extension to display toasts",
+  "devDependencies": {
+    "jest": "^23.5.0",
+    "rollup": "^0.63.5",
+    "rollup-plugin-babel-minify": "^5.0.0"
+  },
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "homepage": "https://rafaelfran.co/bulma-toast",
+  "keywords": [
+    "Bulma",
+    "bulma",
+    "extensions",
+    "bulma.io"
+  ],
+  "license": "MIT",
+  "main": "dist/bulma-toast.cjs.js",
+  "module": "dist/bulma-toast.esm.js",
+  "name": "bulma-toast",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfoel/bulma-toast.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest"
+  },
+  "version": "1.4.0"
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="movilistApp" class="no-js" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title ng-bind="Page.title()">Movilist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- fonts & icons -->
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+  <!-- includes Bulma -->
+  <link rel="stylesheet" href="assets/css/global.css">
+  
+  <!-- compiled CSS files -->
+  <link rel="stylesheet" href="assets/css/searchBar.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/movie.css">
+  <link rel="stylesheet" href="assets/css/authForm.css">
+
+  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+  <navbar></navbar>
+
+  <auth-form></auth-form>
+
+  <section class="section">
+    <div class="container has-text-centered">
+      <h1 class="is-size-2 has-text-white">
+        Create a list of your favorite movies
+
+      </h1>
+      <p class="subtitle has-text-white-ter">
+        and share with others
+      </p>
+    </div>
+  </section>
+
+  <search-bar></search-bar>
+
+  <div ng-view></div>
+
+  <footer-bottom></footer-bottom>  
+
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
+
+  <!-- Bulma Toast -->
+  <script src="lib/bulma-toast/dist/bulma-toast.min.js"></script>
+
+  <!-- Firebase -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script> -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
+
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script>
+    const config = {
+      apiKey: "AIzaSyAAX_jtj6P7zdRkoH3dhXhiSC5v5Sfd-1U",
+      authDomain: "movilist-72a5a.firebaseapp.com",
+      databaseURL: "https://movilist-72a5a.firebaseio.com",
+      projectId: "movilist-72a5a",
+      storageBucket: "movilist-72a5a.appspot.com",
+      messagingSenderId: "283892325865"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <!-- app versions -->
+  <script src="core/version/version.js"></script>
+  <script src="core/version/version-directive.js"></script>
+  <script src="core/version/interpolate-filter.js"></script>
+
+  <!-- components & views -->
+  <script src="app/app.js"></script>
+  <script src="app/services.js"></script>
+  <script src="app/constants.js"></script>
+  <script src="app/home/home.js"></script>
+  <script src="app/randomMovie/randomMovie.js"></script>
+  <script src="app/discover/discover.js"></script>
+  <script src="app/movie/movie.js"></script>
+  <script src="app/common/authForm.js"></script>
+  <script src="app/common/navbar.js"></script>
+  <script src="app/common/searchBar.js"></script>
+  <script src="app/common/footer.js"></script>
+</body>
+</html>

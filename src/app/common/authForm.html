@@ -1,0 +1,162 @@
+<div class="modal" ng-controller="AuthFormCtrl" ng-class="$parent.$parent.isAuthFormVisible ? 'is-active' : ''">
+  <div class="modal-background" ng-click="closeAuthForm()"></div>
+  <div class="modal-card">
+
+    <header class="modal-card-head">
+      <div class="tabs is-boxed">
+        <ul>
+          <li class="tablinks" ng-click="setActiveTab('Login')" ng-class="loginForm.isActive ? 'is-active' : ''">
+            <a>
+              <span>Log in</span>
+            </a>
+          </li>
+          <li class="tablinks" ng-click="setActiveTab('Signup')" ng-class="signupForm.isActive ? 'is-active' : ''">
+            <a>
+              <span>Create account {{$parent.globaltext}} </span>
+            </a>
+          </li>
+          <li>
+            <a class="image" ng-click="handleGoogleSignin()" href="#" style="opacity: .9; padding:0 0.4rem;">
+              <img src="assets/img/btn-google.png" class="btn-google" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- <a class="delete close-label" aria-label="close"></a> -->
+    <span class="icon has-text-info close-label is-medium" ng-click="closeAuthForm()">
+      <i class="fas fa-times fa-lg"></i>
+    </span>
+
+
+
+
+
+    <!-- LOGIN TAB -->
+    <form id="Login" class="tabcontent" ng-class="loginForm.isActive ? 'is-active' : ''">
+      <section class="modal-card-body">
+        <!-- Login tab email field-->
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-right">
+            <input class="input is-medium " ng-model="loginForm.email.value" ng-change="validateLoginEmail()" maxlength="30" type="email">
+            <!-- input validation icons -->
+            <span ng-hide="!loginForm.email.value || loginForm.email.isValid" class="icon is-small is-right">
+              <i class="fas fa-exclamation-triangle has-text-danger"></i>
+            </span>
+            <span ng-show="loginForm.email.isValid" class="icon is-small is-right">
+              <i class="fas fa-check has-text-success"></i>
+            </span>
+          </div>
+          <!-- input validation text -->
+          <p class="help " ng-class="!loginForm.email.isValid ? 'is-danger' : ''">{{loginForm.email.message}}</p>
+        </div>
+
+        <!-- Login tab password field -->
+        <div class="field">
+          <label class="label">Password (6 or more characters)</label>
+          <div class="control  has-icons-right">
+            <input class="input is-medium " ng-model="loginForm.password.value" ng-change="validateLoginPassword()" maxlength="25"
+              type="password">
+            <!-- input validation icons -->
+            <span ng-hide="!loginForm.password.value || loginForm.password.isValid" class="icon is-small is-right">
+              <i class="fas fa-exclamation-triangle  has-text-danger"></i>
+            </span>
+            <span ng-show="loginForm.password.isValid" class="icon is-small is-right">
+              <i class="fas fa-check has-text-success"></i>
+            </span>
+          </div>
+          <!-- input validation text -->
+          <p class="help " ng-class="!loginForm.password.isValid ? 'is-danger' : ''">{{loginForm.password.message}}</p>
+        </div>
+      </section>
+
+      <!-- Login tab footer with buttons -->
+      <footer class="modal-card-foot">
+        <button class="button is-warning is-medium is-outlined" ng-disabled="!isLoginFormValid()" ng-class="loginForm.isLoading ? 'is-loading' : ''"
+          type="submit" ng-click="handleLogin()">Login</button>
+        <!-- &nbsp; Or &nbsp;&nbsp; -->
+        <!-- <a class="image" ng-click="handleGoogleSignin()" href="#">
+          <img src="assets/img/btn-google.png" class="btn-google" />
+        </a> -->
+        <p class="has-text-danger is-size-7">{{loginForm.errorMessage}}</p>
+      </footer>
+    </form>
+    <!-- ------ -->
+
+
+
+
+    <!-- SIGNUP TAB -->
+    <form id="Signup" class="tabcontent" ng-class="signupForm.isActive ? 'is-active' : ''">
+      <section class="modal-card-body">
+
+        <!-- Signup tab email field -->
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-right">
+            <input class="input is-medium " ng-model="signupForm.email.value" ng-change="validateSignupEmail()" maxlength="30"
+              type="email">
+            <!-- input validation icons -->
+            <span ng-hide="!signupForm.email.value || signupForm.email.isValid" class="icon is-small is-right">
+              <i class="fas fa-exclamation-triangle has-text-danger"></i>
+            </span>
+            <span ng-show="signupForm.email.isValid" class="icon is-small is-right">
+              <i class="fas fa-check has-text-success"></i>
+            </span>
+          </div>
+          <!-- input validation text -->
+          <p class="help " ng-class="!signupForm.email.isValid ? 'is-danger' : ''">{{signupForm.email.message}}</p>
+        </div>
+
+        <!-- Signup tab password field -->
+        <div class="field">
+          <label class="label">Password (6 or more characters)</label>
+          <div class="control  has-icons-right">
+            <input class="input is-medium " ng-model="signupForm.password.value" ng-change="validateSignupPassword()" maxlength="25"
+              type="password">
+            <!-- input validation icons -->
+            <span ng-hide="!signupForm.password.value || signupForm.password.isValid" class="icon is-small is-right">
+              <i class="fas fa-exclamation-triangle has-text-danger"></i>
+            </span>
+            <span ng-show="signupForm.password.isValid" class="icon is-small is-right">
+              <i class="fas fa-check has-text-success"></i>
+            </span>
+          </div>
+          <!-- input validation text -->
+          <p class="help " ng-class="!signupForm.password.isValid ? 'is-danger' : ''">{{signupForm.password.message}}</p>
+        </div>
+
+        <!-- Signup tab password confirm field -->
+        <div class="field">
+          <label class="label">Confirm password</label>
+          <div class="control  has-icons-right">
+            <input class="input is-medium " ng-model="signupForm.passwordConfirm.value" ng-change="validateSignupPasswordConfirm()"
+              maxlength="25" type="password">
+            <!-- input validation icons -->
+            <span ng-hide="!signupForm.passwordConfirm.value || signupForm.passwordConfirm.isValid" class="icon is-small is-right">
+              <i class="fas fa-exclamation-triangle has-text-danger"></i>
+            </span>
+            <span ng-show="signupForm.passwordConfirm.isValid" class="icon is-small is-right">
+              <i class="fas fa-check has-text-success"></i>
+            </span>
+          </div>
+          <!-- input validation text -->
+          <p class="help " ng-class="!signupForm.passwordConfirm.isValid ? 'is-danger' : ''">{{signupForm.passwordConfirm.message}}</p>
+        </div>
+
+      </section>
+
+      <!-- Signup tab footer with buttons -->
+      <footer class="modal-card-foot">
+        <button class="button is-white is-outlined is-medium" ng-disabled="!isSignupFormValid()" ng-class="signupForm.isLoading ? 'is-loading' : ''"
+          type="submit" ng-click="handleSignup()">Sign up</button>
+        <!-- &nbsp; Or &nbsp;&nbsp; -->
+        <!-- <a class="image" ng-click="handleGoogleSignin()" href="#">
+          <img src="assets/img/btn-google.png" class="btn-google" />
+        </a> -->
+        <p class="has-text-danger is-size-7">{{signupForm.errorMessage}}</p>
+      </footer>
+  </div>
+</div>

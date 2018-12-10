@@ -1,0 +1,55 @@
+@import 'variables.scss';
+
+.movieRoot {
+  .column {
+    // padding: 0;
+  }
+  .column-content-shadow {
+    // display: inline-block;
+    padding: 1rem;
+    border-radius: $radius;
+    background: transparent;
+    text-overflow: ellipsis;
+    // max-width: auto;
+    transition: background-color 100ms ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: $shadow;
+   background-color: rgba(0, 0, 0, 0.2);
+
+  }
+}
+
+.image-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  opacity: .04;
+  z-index: -1;
+  border-radius: $radius;
+
+}
+.poster-large-img {
+  border-radius: $radius;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-size: cover;
+  background-position: center;
+  box-shadow: $shadow;
+  opacity: .8;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: block;
+  width: 100%;
+  padding-bottom: 150%;
+
+}
+
+@media screen and (min-width: 770px) {
+.poster-large-img {
+  // max-height: 500px !important;
+}
+}
