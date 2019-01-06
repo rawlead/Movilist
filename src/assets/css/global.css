@@ -6749,7 +6749,9 @@ label.panel-block {
 * {
   font-family: 'Ubuntu Condensed', sans-serif; }
 
-input, button, a {
+input,
+button,
+a {
   font-family: 'Ubuntu Condensed', sans-serif !important; }
 
 html {
@@ -6793,6 +6795,29 @@ body {
   top: 0;
   left: 0;
   right: 0; }
+  .navbar .navbar-burger.is-active {
+    font-size: 2rem !important; }
+  .navbar .navbar-menu.is-active {
+    background: #002410;
+    background: linear-gradient(170deg, #002410, rgba(17, 63, 125, 0.97));
+    height: 100vh; }
+    .navbar .navbar-menu.is-active .navbar-start {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+    .navbar .navbar-menu.is-active .navbar-end {
+      position: absolute;
+      top: 150px;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+    .navbar .navbar-menu.is-active .navbar-item {
+      padding-top: .7rem;
+      padding-bottom: .7rem;
+      text-align: center !important;
+      font-size: 1.5rem; }
+      .navbar .navbar-menu.is-active .navbar-item:hover {
+        background-color: transparent; }
   .navbar.is-fixed-top {
     background: #002410;
     background: linear-gradient(170deg, #002410, rgba(17, 63, 125, 0.97));
@@ -6809,9 +6834,17 @@ body {
       height: 3.25rem;
       border-radius: inherit; }
   .navbar .navbar-item {
-    color: #fff; }
+    color: #fff;
+    font-weight: bold; }
+    .navbar .navbar-item.active {
+      color: #d4aa2b; }
     .navbar .navbar-item:hover {
-      color: #fff; }
+      color: #d4aa2b; }
+    .navbar .navbar-item .has-dropdown:hover {
+      color: #ffdd57 !important; }
+      .navbar .navbar-item .has-dropdown:hover .navbar-dropdown {
+        background: transparent;
+        text-align: center; }
 
 .footer {
   background-color: rgba(0, 0, 0, 0.2);

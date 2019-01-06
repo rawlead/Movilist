@@ -3,7 +3,6 @@
 
 $input-focus-border-color: transparent;
 $success: hsl(141, 72%, 28%);
-// $warning: hsl(45, 66%, 50%);
 
 @import "../../../node_modules/bulma/bulma.sass";
 @import 'variables.scss';
@@ -12,7 +11,9 @@ $success: hsl(141, 72%, 28%);
   font-family: 'Ubuntu Condensed', sans-serif;
 }
 
-input, button, a {
+input,
+button,
+a {
   font-family: 'Ubuntu Condensed', sans-serif !important;
 
 }
@@ -34,8 +35,8 @@ body {
   &::after {
     content: "";
     background-size: cover;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 20%,
-              rgba(255,255,255,1)), url('../img/body-background.jpg');
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 1)), url('../img/body-background.jpg');
     background-position: top center;
     opacity: 0.05;
     top: 0;
@@ -62,15 +63,61 @@ body {
   padding: .5rem 1.5rem;
 }
 
+
+
+
+
+
+
+
 .navbar {
   background: transparent;
   z-index: 100 !important;
-  position:absolute;
+  position: absolute;
   top: 0;
-  left:0;
+  left: 0;
   right: 0;
 
-  
+  .navbar-burger {
+    &.is-active {
+      font-size: 2rem !important;
+    }
+  }
+
+  .navbar-menu {
+    // on mobile device
+
+    &.is-active {
+      background: #002410;
+      background: linear-gradient(170deg, #002410, rgba(17, 63, 125, 0.97));
+      height: 100vh;
+
+      .navbar-start {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .navbar-end {
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .navbar-item {
+        padding-top: .7rem;
+        padding-bottom: .7rem;
+        text-align: center !important;
+        font-size: 1.5rem;
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
 
 
   &.is-fixed-top {
@@ -81,11 +128,11 @@ body {
     border-bottom-right-radius: $radius;
     // transition: all 1s;
     box-shadow: $shadow !important;
- 
+
     .navbar-background {
       position: absolute;
       background-color: rgba(0, 0, 0, 0.1);
-      top:0;
+      top: 0;
       left: 0;
       right: 0;
       height: 3.25rem;
@@ -95,10 +142,24 @@ body {
 
   .navbar-item {
     color: $title-color;
+    font-weight: bold;
+
+    &.active {
+      color: hsl(45, 66%, 50%);
+    }
 
     &:hover {
-      color: $title-color;
+      color: hsl(45, 66%, 50%);
     }
+
+    .has-dropdown:hover {
+color: $warning !important;
+    .navbar-dropdown {
+      background: transparent;
+      text-align:center;
+    }
+
+  }
   }
 }
 

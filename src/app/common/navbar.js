@@ -6,10 +6,12 @@ angular.module('movilistApp').component('navbar', {
 })
 
 
-.controller('NavbarCtrl', ['$scope', '$firebaseAuth', 'toast',
-  function ($scope, $firebaseAuth, toast) {
+.controller('NavbarCtrl', ['$scope', '$firebaseAuth', 'toast', '$location',
+  function ($scope, $firebaseAuth, toast, $location) {
     $scope.openAuthForm = $scope.$parent.$parent.openAuthForm;
     const auth = $firebaseAuth();
+
+    $scope.isMobile = false;
 
     $scope.$parent.$parent.$watch('loggedInUser', function (loggedInUser) {
       $scope.loggedInUser = loggedInUser;
@@ -18,6 +20,14 @@ angular.module('movilistApp').component('navbar', {
     $scope.handleSignOut = function () {
       auth.$signOut();
       toast.showSuccess('Successfully signed out');
+    };
+
+    $scope.toggleMobile = function () {
+      $scope.isMobile = !$scope.isMobile;
+    }
+
+    $scope.getClass = function (path) {
+      return ($location.path().substr(0, path.length) === path) ? 'active' : '';
     }
   }])
 
